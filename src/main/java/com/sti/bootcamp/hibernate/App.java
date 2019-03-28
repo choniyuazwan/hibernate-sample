@@ -60,7 +60,7 @@ public class App
     private List<CustomerEntity> listCustomer()
     {
         Session sesn = factory.openSession();
-        List<CustomerEntity> users = new ArrayList<>();
+        List<CustomerEntity> users = new ArrayList<CustomerEntity>();
         try{
             Query query = (Query) sesn.createQuery("From Customer");
             query.setMaxResults(10);
@@ -75,7 +75,7 @@ public class App
     private List<AccountEntity> listAccount()
     {
         Session sesn = factory.openSession();
-        List<AccountEntity> accounts = new ArrayList<>();
+        List<AccountEntity> accounts = new ArrayList<AccountEntity>();
         try{
             Query query = (Query) sesn.createQuery("From Account");
             query.setMaxResults(10);
@@ -90,7 +90,7 @@ public class App
     private List<AccountEntity> listAccount(CustomerEntity customer)
     {
         Session sesn = factory.openSession();
-        List<AccountEntity> accounts = new ArrayList<>();
+        List<AccountEntity> accounts = new ArrayList<AccountEntity>();
         try{
             Query query = (Query) sesn.getNamedQuery("QUERY_ACCOUNT_BY_CUSTOMER");
             query.setInteger("cif", customer.getCustomerNumber());
@@ -98,7 +98,7 @@ public class App
         } finally {
             sesn.close();
         }
-         
+
         return accounts;
     }
 }
